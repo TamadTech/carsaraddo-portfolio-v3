@@ -80,6 +80,7 @@
   .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brand);font-weight:500}
   h1,h2,h3{font-family:"Space Grotesk",sans-serif;font-weight:600;line-height:1.06;letter-spacing:-.015em;color:var(--ink)}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  @media(max-width:400px){.wrap{padding:0 18px}}
   .section{padding:90px 0;position:relative}
   .section-head{margin-bottom:38px;max-width:700px}
   .section-head h2{font-size:clamp(2rem,4.4vw,3.05rem);margin:14px 0 0}
@@ -142,6 +143,11 @@
     .status{font-size:.64rem;letter-spacing:.07em;border-radius:18px;align-items:flex-start;line-height:1.55}
     .status .live{margin-top:4px;flex:0 0 auto}
     .role-line{overflow-wrap:anywhere}
+  }
+  @media(max-width:400px){
+    .board-head{flex-wrap:wrap;gap:8px}
+    .board-title{font-size:.6rem;letter-spacing:.08em}
+    .board-status{font-size:.6rem;padding:4px 9px}
   }
   .scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.2em;color:var(--muted-2);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:9px}
   .scroll-hint .bar{width:1px;height:34px;background:linear-gradient(var(--brand),transparent);animation:drop 2s infinite}
@@ -241,11 +247,12 @@
   .creds .wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}
   .cred-col h4{font-family:"IBM Plex Mono";font-size:.73rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:16px}
   .cred-col ul{list-style:none}
-  .cred-col li{padding:11px 0;border-bottom:1px solid var(--line);font-size:.92rem;color:var(--ink);display:flex;align-items:baseline;gap:10px}
+  .cred-col li{padding:11px 0;border-bottom:1px solid var(--line);font-size:.92rem;color:var(--ink);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
   .cred-col li:last-child{border-bottom:none}
   .cred-col li .m{font-family:"IBM Plex Mono";font-size:.71rem;color:var(--muted-2);margin-left:auto;white-space:nowrap}
   .cred-col li .badge{color:var(--accent)}
   @media(max-width:760px){.creds .wrap{grid-template-columns:1fr;gap:32px}}
+  @media(max-width:400px){.cred-col li .m{margin-left:0;flex:0 0 100%}}
 
   /* ===== CONTACT ===== */
   .contact{background:var(--ink);color:#fff;text-align:center;position:relative;overflow:hidden}
