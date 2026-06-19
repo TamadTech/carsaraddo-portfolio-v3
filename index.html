@@ -230,7 +230,8 @@
   .vcard{background:var(--paper-2);padding:22px 22px 20px;border:1px solid var(--line);border-radius:12px;transition:transform .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease)}
   .vcard:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:var(--sh-sm)}
   .vcard .vtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:10px}
-  .vcard .vname{font-family:"Space Grotesk";font-weight:600;font-size:1.02rem;color:var(--ink)}
+  .vcard .vname{font-family:"Space Grotesk";font-weight:600;font-size:1.02rem;color:var(--ink);transition:color .25s var(--ease)}
+  .vcard a.vname:hover{color:var(--brand)}
   .vcard .vstat{font-family:"IBM Plex Mono";font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--brand);border:1px solid var(--line-2);padding:3px 8px;border-radius:14px;white-space:nowrap}
   .vcard .vstat.patent{color:var(--accent);border-color:rgba(181,102,15,.3);background:var(--accent-tint)}
   .vcard p{font-size:.84rem;color:var(--body);line-height:1.5}
@@ -536,9 +537,9 @@
       <p class="v-note">Three products I've designed and shipped end-to-end — so I lead engineering teams as a peer, not a passenger.</p>
     </div>
     <div class="vstrip">
-      <div class="vcard reveal"><div class="vtop"><span class="vname">SightLinePM</span><span class="vstat">MVP</span></div><p>Mid-market PMO intelligence — a live read on portfolio health, risk, and delivery for PMO leaders.</p></div>
-      <div class="vcard reveal"><div class="vtop"><span class="vname">Pensow</span><span class="vstat">Live</span></div><p>AI document generation across 31 document types, built on Gemini 2.5 Flash.</p></div>
-      <div class="vcard reveal"><div class="vtop"><span class="vname">ScribeMagician</span><span class="vstat">Live</span></div><p>AI meeting transcription that turns conversations into structured, searchable records.</p></div>
+      <div class="vcard reveal"><div class="vtop"><a class="vname" href="https://sightlinepm.com/" target="_blank" rel="noopener">SightLinePM &#8599;</a><span class="vstat">MVP</span></div><p>Mid-market PMO intelligence — a live read on portfolio health, risk, and delivery for PMO leaders.</p></div>
+      <div class="vcard reveal"><div class="vtop"><a class="vname" href="https://pensow.com/" target="_blank" rel="noopener">Pensow &#8599;</a><span class="vstat">Live</span></div><p>AI document generation across 31 document types, built on Gemini 2.5 Flash.</p></div>
+      <div class="vcard reveal"><div class="vtop"><a class="vname" href="https://scribemagician.com/" target="_blank" rel="noopener">ScribeMagician &#8599;</a><span class="vstat">Live</span></div><p>AI meeting transcription that turns conversations into structured, searchable records.</p></div>
     </div>
   </div>
 </section>
