@@ -794,11 +794,14 @@
   }
 
   function resize(){
+    var newW=canvas.clientWidth, newH=canvas.clientHeight;
+    if(newW<=0 || newH<=0) return; // box not laid out yet — skip until it has real dimensions
+    var changed = (newW!==bW || newH!==bH);
     bdpr=Math.min(window.devicePixelRatio||1,2);
-    bW=canvas.clientWidth; bH=canvas.clientHeight;
+    bW=newW; bH=newH;
     canvas.width=bW*bdpr; canvas.height=bH*bdpr;
     ctx.setTransform(bdpr,0,0,bdpr,0,0);
-    if(gnodes.length===0) buildGraph();
+    if(gnodes.length===0 || changed) buildGraph();
   }
 
   var running=false, rafId=null, heroIn=true;
@@ -806,6 +809,14 @@
   function stopAnim(){ running=false; if(rafId){ cancelAnimationFrame(rafId); rafId=null; } }
   resize();
   window.addEventListener('resize', resize);
+  // window 'resize' only fires on viewport changes; the board's own box can also
+  // change size from layout shifts (webfont swap-in, mobile URL-bar collapse) without
+  // the viewport changing, which left the canvas measured/centered against a stale size.
+  if('ResizeObserver' in window){
+    new ResizeObserver(resize).observe(canvas.parentElement);
+  }
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(resize);
+  window.addEventListener('load', resize);
   canvas.addEventListener('mousemove', function(e){ var r=canvas.getBoundingClientRect(); parT.x=((e.clientX-r.left)/r.width-0.5)*-12; parT.y=((e.clientY-r.top)/r.height-0.5)*-9; });
   canvas.addEventListener('mouseleave', function(){ parT.x=0; parT.y=0; });
   if(reduce){
